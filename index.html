@@ -1,0 +1,81 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teasing Website</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f7f7f7;
+      margin: 0;
+      padding: 0;
+    }
+    h1 {
+      margin-top: 50px;
+    }
+    #reveal {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 20px;
+      cursor: pointer;
+      border: none;
+      background-color: #4caf50;
+      color: white;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+    #reveal:hover {
+      background-color: #45a049;
+    }
+    #hidden {
+      margin-top: 20px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    #dialogue {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1><span id="message">Click on "Next" to reveal what's hidden!</span></h1>
+  <button id="reveal">Next</button>
+  <div id="dialogue"></div>
+  <div id="hidden"></div>
+
+  <script>
+    let clickCount = 0;
+    const revealButton = document.getElementById('reveal');
+    const hiddenContent = document.getElementById('hidden');
+    const dialogueBox = document.getElementById('dialogue');
+    const messages = [
+      "Click on 'Next' to reveal what's hidden!",
+      "Keep clicking 'Next' to see more!",
+      "Click 'Next' again to reveal more surprises!",
+      "Keep going! The fun's not over yet!",
+      "One more click to see what's next!",
+      "Click again to reveal something exciting!",
+      "Inkosari nokkithe emundo telsipothademo",
+      "Naakosam inkosari click chey smoilessss",
+      "EHEHEHEH nokku malli",
+      "aba please ide last click cheyyyyy pilissssss"
+    ];
+
+    revealButton.addEventListener('click', function() {
+      clickCount++;
+      if (clickCount < 10) {
+        hiddenContent.innerHTML += "<p>Teasing text to reveal something...</p>";
+        dialogueBox.innerHTML = "<p>" + messages[clickCount % messages.length] + "</p>";
+      } else if (clickCount === 10) {
+        hiddenContent.innerHTML = "<p>Nik 10th nundi college undi prepare ayyava😦😦😦</p>";
+        dialogueBox.innerHTML = "";
+      }
+    });
+  </script>
+</body>
+</html>
+
